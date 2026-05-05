@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Grade Ahead | At-Home Enrichment Programme with Live Classes for K-12</title>
+  <meta name="description" content="Expert-crafted curriculum + weekly live classes. A Grade Ahead helps K-12 students build confidence and excel in Math, English & Science. Start your free assessment today.">
+
+  <!-- Preload hero assets (AiA pattern: fallback image first, video second) -->
+  <link rel="preload" as="image" href="agradeahead-assets/hero-fallback.jpg" fetchpriority="high">
+  <link rel="preload" as="video" href="agradeahead-assets/hero-video.mp4" type="video/mp4">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hero video injection script (AiA progressive-enhancement pattern) -->
+  <script>
+    (function() {
+      const fallbackSrc = 'agradeahead-assets/hero-fallback.jpg';
+      const videoSrc = 'agradeahead-assets/hero-video.mp4';
+
+      // Step 1: Insert fallback image ASAP via MutationObserver
+      const obs = new MutationObserver(function(mutations, observer) {
+        const hero = document.getElementById('hero-video-bg');
+        if (hero) {
+          const img = document.createElement('img');
+          img.src = fallbackSrc;
+          img.className = 'hero-fallback-img';
+          img.loading = 'eager';
+          img.setAttribute('fetchpriority', 'high');
+          img.alt = '';
+          hero.appendChild(img);
+          observer.disconnect();
+        }
+      });
+      obs.observe(document.documentElement, { childList: true, subtree: true });
+
+      // Step 2: Once DOM ready, create video & swap when playable
+      document.addEventListener('DOMContentLoaded', function() {
+        const hero = document.getElementById('hero-video-bg');
+        if (!hero) return;
+        const video = document.createElement('video');
+        video.autoplay = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.loop = true;
+        video.setAttribute('aria-hidden', 'true');
+        video.className = 'hero-bg-video';
+        video.src = videoSrc;
+        video.addEventListener('canplaythrough', function() {
+          hero.appendChild(video);
+          var fb = hero.querySelector('.hero-fallback-img');
+          if (fb) fb.remove();
+        });
+      });
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <!-- Utility bar inside fixed header -->
+    <div class="utility-bar">
+      <div class="container">
+        <span>Formerly MathWizard &middot; Serving 35,000+ students nationwide</span>
+        <div>
+          <a href="#">Parent Portal</a>
+          <a href="#">Careers</a>
+          <a href="#">Franchising</a>
+        </div>
+      </div>
+    </div>
+    <div class="header__main">
+      <div class="container">
+        <div class="header__inner">
+          <a href="#" class="header__logo">
+            <img src="agradeahead-assets/logo-dark.png" alt="A Grade Ahead">
+          </a>
+          <nav class="header__nav" aria-label="Primary">
+            <a href="#program">Program</a>
+            <a href="#promises">Our Promises</a>
+            <a href="#testimonials">Results</a>
+            <a href="#founders">Our Story</a>
+            <a href="#academies">Academies</a>
+          </nav>
+          <div class="header__right">
+            <button class="hamburger" id="menuToggle" aria-label="Toggle menu">
+              <span></span><span></span><span></span>
+            </button>
+            <a href="#" class="btn-primary header__cta">Get Started <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== FULL SCREEN MENU ===== -->
+  <div class="modal-menu" id="modalMenu">
+    <div class="modal-menu__inner">
+      <nav>
+        <ul class="modal-menu__nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Programs</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Why Us</a></li>
+          <li><a href="#">Results</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </nav>
+      <div class="modal-menu__footer">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HERO (AiA-style full-viewport video background) ===== -->
+  <section class="hero">
+    <!-- Video background (injected via JS with fallback-first approach) -->
+    <div id="hero-video-bg"></div>
+    <!-- Dark gradient overlay -->
+    <div class="hero__overlay"></div>
+
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Academic Enrichment for Grades K&ndash;12</p>
+        <h1 class="hero__title">Give Your Child the Confidence to Excel in School and Beyond</h1>
+        <p class="hero__subtitle">A Grade Ahead combines expert-written lessons and weekly worksheets with live virtual classes taught by experienced educators. New concepts every week. Real progress every month.</p>
+        <div class="hero__ctas">
+          <a href="#" class="btn-primary">Start Your Free Assessment <span class="arrow">&rarr;</span></a>
+          <a href="#how-it-works" class="btn-ghost-white">See How It Works</a>
+        </div>
+        <div class="hero__trust">
+          <span class="hero__trust-item"><span class="hero__trust-check">&#10003;</span> Trusted by 10,000+ families</span>
+          <span class="hero__trust-item"><span class="hero__trust-check">&#10003;</span> 98% of parents recommend us</span>
+          <span class="hero__trust-item"><span class="hero__trust-check">&#10003;</span> Since 2001</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== SOCIAL PROOF BAR ===== -->
+  <section class="proof-bar">
+    <div class="container">
+      <div class="proof-bar__grid">
+        <div class="proof-bar__item animate-on-scroll">
+          <div class="proof-bar__number">20+</div>
+          <div class="proof-bar__label">Years of Enrichment</div>
+        </div>
+        <div class="proof-bar__item animate-on-scroll animate-delay-1">
+          <div class="proof-bar__number">98%</div>
+          <div class="proof-bar__label">Parent Recommendation Rate</div>
+        </div>
+        <div class="proof-bar__item animate-on-scroll animate-delay-2">
+          <div class="proof-bar__number">4</div>
+          <div class="proof-bar__label">Subjects Available</div>
+        </div>
+        <div class="proof-bar__item animate-on-scroll animate-delay-3">
+          <div class="proof-bar__number">K&ndash;12</div>
+          <div class="proof-bar__label">Grade Levels Covered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ZIP BAND (find an academy) ===== -->
+  <section class="zip-band" id="zip">
+    <div class="container">
+      <div class="zip-band__inner animate-on-scroll">
+        <p class="zip-band__eyebrow">Find an Academy</p>
+        <h2 class="zip-band__title">See if there&rsquo;s an A Grade Ahead near you.</h2>
+        <p class="zip-band__subtitle">Enter your ZIP code and we&rsquo;ll point you to your closest enrichment academy &mdash; or set you up with our Enrichment-At-Home program if there isn&rsquo;t one nearby.</p>
+        <form class="zip-band__form" onsubmit="event.preventDefault(); alert('Looking up academies near ' + this.zip.value);">
+          <label class="zip-band__label" for="zip-input">Home ZIP Code</label>
+          <div class="zip-band__wrap">
+            <input id="zip-input" name="zip" type="text" inputmode="numeric" pattern="[0-9A-Za-z]{3,10}" placeholder="Enter your ZIP" required>
+            <button type="submit" aria-label="Find academies near you">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <small class="zip-band__caption">We&rsquo;ll find your nearest A Grade Ahead academy.</small>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WELCOME ===== -->
+  <section class="welcome">
+    <div class="container">
+      <div class="welcome__inner animate-on-scroll">
+        <p class="section__eyebrow">Welcome to A Grade Ahead</p>
+        <h2 class="welcome__title">Better Than Tutoring. This Is Educational Enrichment.</h2>
+        <p class="welcome__text">At A Grade Ahead, not only will you see results, but your child will feel empowered to succeed. Our students are constantly building on their skills with fewer monotonous drills and more real-world situations. Most of all, your child will enjoy learning because we show students that it can be fun, challenging, and rewarding.</p>
+        <div class="welcome__divider"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IMAGE GALLERY (AiA-inspired masonry grid) ===== -->
+  <section class="gallery">
+    <div class="gallery__grid">
+      <!-- Row 1 -->
+      <div class="gallery__item gallery__item--tall animate-on-scroll">
+        <img src="https://img.b2bpic.net/premium-photo/child-laptop-mom-with-education-learning-growth-future-knowledge-mother-student-kitchen-help-studying-support-home-school-development-coloring-assessment_590464-375427.jpg" alt="Parent and child learning together at home" loading="lazy">
+        <div class="gallery__item-overlay">
+          <span class="gallery__item-label">Parent-Led Learning</span>
+        </div>
+      </div>
+      <div class="gallery__item animate-on-scroll animate-delay-1">
+        <img src="https://img.b2bpic.net/premium-photo/child-boy-blackboard-with-math-equations-knowledge-numbers-hand-gesture-classroom-school-kid-student-learning-by-chalkboard-problem-solving-studying-preschool_590464-289292.jpg" alt="Child learning math at blackboard" loading="lazy">
+        <div class="gallery__item-overlay">
+          <span class="gallery__item-label">Math Excellence</span>
+        </div>
+      </div>
+      <div class="gallery__item animate-on-scroll animate-delay-2">
+        <img src="https://img.b2bpic.net/premium-photo/home-laptop-girl-with-knowledge-online-class-headphones-with-connection-remote-school-studying-person-student-child-with-headset-pc-elearning-with-virtual-teaching-smile_590464-245955.jpg" alt="Girl taking online class with headphones" loading="lazy">
+        <div class="gallery__item-overlay">
+          <span class="gallery__item-label">Live Virtual Classes</span>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="gallery__item animate-on-scroll animate-delay-1">
+        <img src="https://img.b2bpic.net/premium-photo/education-paper-hands-child-writing-math-homework-learning-study-numbers-youth-child-development-table-pen-young-school-student-studying-mathematics-kindergarten-classroom_590464-114997.jpg" alt="Child writing math homework" loading="lazy">
+        <div class="gallery__item-overlay">
+          <span class="gallery__item-label">Expert Curriculum</span>
+        </div>
+      </div>
+      <div class="gallery__item animate-on-scroll animate-delay-2">
+        <img src="https://img.b2bpic.net/premium-photo/online-remote-learning-school-kids-with-computer-having-video-conference-chat-with-teacher-class-child-studying-home-homeschooling-concept_265223-157182.jpg" alt="Kids in online remote learning session" loading="lazy">
+        <div class="gallery__item-overlay">
+          <span class="gallery__item-label">Interactive Sessions</span>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="gallery__item gallery__item--wide animate-on-scroll animate-delay-2">
+        <img src="https://img.b2bpic.net/premium-photo/mother-helping-her-daughter-with-her-homework-table_13339-348516.jpg" alt="Mother helping daughter with homework at table" loading="lazy">
+        <div class="gallery__item-overlay">
+          <span class="gallery__item-label">Home Enrichment</span>
+        </div>
+      </div>
+      <div class="gallery__item animate-on-scroll animate-delay-3">
+        <img src="https://img.b2bpic.net/free-photo/diverse-kids-reading-books_53876-146406.jpg" alt="Diverse kids reading books" loading="lazy">
+        <div class="gallery__item-overlay">
+          <span class="gallery__item-label">Love of Learning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS (creative journey with circular images) ===== -->
+  <section class="section section--grey drift-container" id="how-it-works">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <p class="section__eyebrow">How It Works</p>
+        <h2 class="section__title">Getting Started Is Simple</h2>
+        <p class="section__subtitle">Here's what your family's enrichment journey looks like &mdash; three straightforward steps to academic confidence.</p>
+      </div>
+      <div class="steps-journey">
+        <div class="steps__grid">
+          <div class="step-card animate-on-scroll animate-delay-1">
+            <div class="step-card__image-wrap">
+              <div class="step-card__image-circle">
+                <img src="https://img.b2bpic.net/premium-photo/student-thinking-child-abacus-home-education-math-learning-problem-solving-numbers-young-girl-kid-with-ideas-solution-knowledge-school-development-question-notes-book_590464-245950.jpg" alt="Child thinking about math with abacus" loading="lazy">
+              </div>
+              <div class="step-card__number">1</div>
+            </div>
+            <h3 class="step-card__title">Choose Your Programme</h3>
+            <p class="step-card__text">Select your child's subject and grade level. Take our free online assessment and we'll recommend the right starting point &mdash; whether they need to catch up, keep pace, or get ahead.</p>
+          </div>
+          <div class="step-card animate-on-scroll animate-delay-2">
+            <div class="step-card__image-wrap">
+              <div class="step-card__image-circle">
+                <img src="https://img.b2bpic.net/premium-photo/home-laptop-girl-with-knowledge-online-class-headphones-with-connection-remote-school-studying-person-student-child-with-headset-pc-elearning-with-virtual-teaching-smile_590464-245955.jpg" alt="Girl taking online class with headphones" loading="lazy">
+              </div>
+              <div class="step-card__number">2</div>
+            </div>
+            <h3 class="step-card__title">Learn with Classes &amp; Curriculum</h3>
+            <p class="step-card__text">Each week, your child attends a live 50-minute class and completes expert-crafted worksheets. New concepts every week, reinforced with 4 days of structured practice delivered to your door.</p>
+          </div>
+          <div class="step-card animate-on-scroll animate-delay-3">
+            <div class="step-card__image-wrap">
+              <div class="step-card__image-circle">
+                <img src="https://img.b2bpic.net/premium-photo/mom-child-writing-home-education-e-learning-family-support-creative-development-kitchen-interracial-mother-parents-kid-drawing-color-book-online-school-teaching_590464-234288.jpg" alt="Mom and child learning together at home" loading="lazy">
+              </div>
+              <div class="step-card__number">3</div>
+            </div>
+            <h3 class="step-card__title">Watch Them Excel</h3>
+            <p class="step-card__text">Track your child's progress through our Parent Portal. Parents consistently tell us their children gain confidence, improve grades, and develop a genuine love of learning.</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 56px;" class="animate-on-scroll">
+        <a href="#" class="btn-primary">Get Started Free <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT YOUR CHILD WILL LEARN (with real Freepik images) ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <p class="section__eyebrow">Our Programmes</p>
+        <h2 class="section__title">What Your Child Will Learn</h2>
+        <p class="section__subtitle">Expert-crafted curriculum aligned with national standards, designed to challenge students beyond what they encounter in school. New concepts every week &mdash; this is enrichment, not repetition.</p>
+      </div>
+      <div class="subjects-grid">
+        <div class="subject-card animate-on-scroll animate-delay-1">
+          <img class="subject-card__bg" src="https://img.b2bpic.net/premium-photo/little-child-writing-chalkboard-kid-front-board-with-math-equation-smart-pupil-studying-math_265223-1571.jpg" alt="Child writing math equations on chalkboard" loading="lazy">
+          <div class="subject-card__overlay">
+            <span class="subject-card__grade">Kindergarten &ndash; High School</span>
+            <h3 class="subject-card__title">Math</h3>
+            <ul class="subject-card__bullets">
+              <li>Number fluency, operations &amp; problem-solving</li>
+              <li>Pre-Algebra through Algebra II pathways</li>
+              <li>Critical thinking through real-world problems</li>
+            </ul>
+            <span class="subject-card__link">Explore Math &rarr;</span>
+          </div>
+        </div>
+        <div class="subject-card animate-on-scroll animate-delay-2">
+          <img class="subject-card__bg" src="https://img.b2bpic.net/premium-photo/adorable-cute-indian-latin-schoolgirl-studying-home-sitting-table-serious-spanish-arab-pretty-kid-junior-student-learning-writing-work-book-doing-homework-home-classroom_203461-1026.jpg" alt="Girl studying and writing in workbook" loading="lazy">
+          <div class="subject-card__overlay">
+            <span class="subject-card__grade">Kindergarten &ndash; High School</span>
+            <h3 class="subject-card__title">English</h3>
+            <ul class="subject-card__bullets">
+              <li>Grammar, vocabulary &amp; reading comprehension</li>
+              <li>Structured essay writing for upper grades</li>
+              <li>Aligned with national standards per grade</li>
+            </ul>
+            <span class="subject-card__link">Explore English &rarr;</span>
+          </div>
+        </div>
+        <div class="subject-card animate-on-scroll animate-delay-3">
+          <img class="subject-card__bg" src="https://img.b2bpic.net/premium-photo/distance-education-black-child-student-with-idea-light-bulb-question-marks-science-formulas_263368-13087.jpg" alt="Child with science formulas and ideas" loading="lazy">
+          <div class="subject-card__overlay">
+            <span class="subject-card__grade">3rd &ndash; 5th Grade</span>
+            <h3 class="subject-card__title">Science</h3>
+            <ul class="subject-card__bullets">
+              <li>Earth, life &amp; physical sciences</li>
+              <li>Experiment-based, real-world learning</li>
+              <li>16-week focused courses</li>
+            </ul>
+            <span class="subject-card__link">Explore Science &rarr;</span>
+          </div>
+        </div>
+        <div class="subject-card animate-on-scroll animate-delay-4">
+          <img class="subject-card__bg" src="https://img.b2bpic.net/premium-photo/home-father-child-with-drawing-education-support-helping-with-creativity-kindergarten-house-man-girl-with-book-learning-cognitive-development-homework-preschool_590464-513758.jpg" alt="Father helping young child with drawing and learning" loading="lazy">
+          <div class="subject-card__overlay">
+            <span class="subject-card__grade">Ages 4 &amp; 5</span>
+            <h3 class="subject-card__title">Pre-K</h3>
+            <ul class="subject-card__bullets">
+              <li>Number sense, counting &amp; early arithmetic</li>
+              <li>Letter recognition, phonics &amp; pre-reading</li>
+              <li>Kindergarten readiness skills</li>
+            </ul>
+            <span class="subject-card__link">Explore Pre-K &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 56px;" class="animate-on-scroll">
+        <a href="#" class="btn-secondary">Download a Free Curriculum Sample <span>&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FULL-WIDTH IMAGE BREAK (AiA parallax-quote style) ===== -->
+  <section class="image-break">
+    <img class="image-break__img" src="https://img.b2bpic.net/premium-photo/father-helping-supporting-his-daughter-with-homeschool-while-staying-home_58466-13958.jpg" alt="Father helping daughter with homeschool" loading="lazy">
+    <div class="image-break__overlay">
+      <blockquote class="image-break__quote animate-on-scroll">
+        &ldquo;Education is not the filling of a pail, but the lighting of a fire.&rdquo;<br>
+        <small style="font-size: 0.6em; font-style: normal; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin-top: 16px; display: inline-block;">&mdash; W.B. Yeats</small>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ===== WHY PARENTS CHOOSE US (AiA founder-letter style) ===== -->
+  <section class="why-section drift-container">
+    <div class="why-section__frame-top"></div>
+
+    <div class="why-section__inner">
+      <div class="animate-on-scroll">
+        <p class="section__eyebrow">Why A Grade Ahead</p>
+        <h2 class="why-section__title">Why Parents Choose Us</h2>
+        <p class="why-section__subtitle">A Promise from Our Founders</p>
+      </div>
+
+      <div class="animate-on-scroll">
+        <p class="why-section__text">We're not tutoring. We're not homework help. When we started A Grade Ahead at our kitchen table over twenty years ago, we had a simple belief: every child deserves an education that challenges them, excites them, and prepares them for a future beyond the classroom.</p>
+        <p class="why-section__text">Today, that belief drives everything we do &mdash; from the expert-crafted curriculum your child receives each month to the live virtual classes where real teachers guide them through new concepts every single week.</p>
+      </div>
+
+      <div class="why-section__divider"></div>
+
+      <div class="why-section__text-more" id="whyTextMore">
+        <p class="why-section__text">We built this programme for families like yours &mdash; families who want more than worksheets, who believe their children can be challenged without being overwhelmed, and who value the convenience of learning from home without sacrificing quality.</p>
+        <p class="why-section__text">Every lesson is written by teachers. Every class is led by an educator who knows your child's name. And every month, you'll see your child grow &mdash; not just in grades, but in confidence.</p>
+      </div>
+
+      <div class="animate-on-scroll" style="margin-bottom: 12px;">
+        <a href="#" class="btn-secondary" id="readMoreBtn" onclick="document.getElementById('whyTextMore').classList.add('visible'); this.style.display='none'; return false;">Read More</a>
+      </div>
+
+      <div class="why-section__divider"></div>
+
+      <!-- Feature cards -->
+      <div class="why-section__features">
+        <div class="why-feature animate-on-scroll animate-delay-1">
+          <div class="why-feature__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/>
+              <rect x="1" y="5" width="15" height="14" rx="2"/>
+            </svg>
+          </div>
+          <div class="why-feature__content">
+            <h4>Live Classes Weekly</h4>
+            <p>50-minute virtual sessions with real teachers, not pre-recorded videos</p>
+            <div class="why-feature__stat">50 min</div>
+          </div>
+        </div>
+        <div class="why-feature animate-on-scroll animate-delay-2">
+          <div class="why-feature__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+            </svg>
+          </div>
+          <div class="why-feature__content">
+            <h4>Expert Curriculum</h4>
+            <p>New concepts every week, written by teachers &mdash; not repetitive drills</p>
+            <div class="why-feature__stat">90%</div>
+          </div>
+        </div>
+        <div class="why-feature animate-on-scroll animate-delay-3">
+          <div class="why-feature__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div class="why-feature__content">
+            <h4>Learn from Home</h4>
+            <p>No driving. Curriculum delivered monthly. Classes from your kitchen table</p>
+            <div class="why-feature__stat">20 min/day</div>
+          </div>
+        </div>
+        <div class="why-feature animate-on-scroll animate-delay-4">
+          <div class="why-feature__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <div class="why-feature__content">
+            <h4>Affordable Value</h4>
+            <p>Full month of classes + curriculum vs. $85+/hr private tutoring</p>
+            <div class="why-feature__stat">$129/mo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll" style="margin-top: 20px;">
+        <a href="#" class="btn-primary">Get Started Free <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section drift-container">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <p class="section__eyebrow">Testimonials</p>
+        <h2 class="section__title">What Parents Are Saying</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate-on-scroll animate-delay-1">
+          <div class="testimonial-card__quote-mark">&ldquo;</div>
+          <p class="testimonial-card__text">I wanted a programme that would provide an engaging curriculum without the stress of forcing my daughter to sit and do additional work after a busy day. A Grade Ahead made it easy and enjoyable.</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">NS</div>
+            <div>
+              <div class="testimonial-card__name">Nilanjana S.</div>
+              <div class="testimonial-card__role">Enrichment at Home Parent</div>
+            </div>
+          </div>
+          <span class="testimonial-card__tag">Flexible Scheduling</span>
+        </div>
+        <div class="testimonial-card animate-on-scroll animate-delay-2">
+          <div class="testimonial-card__quote-mark">&ldquo;</div>
+          <p class="testimonial-card__text">My son's grades started increasing at such a fast pace that it made my dad's head spin. A Grade Ahead gave Varun the foundation he needed for academic success.</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">VP</div>
+            <div>
+              <div class="testimonial-card__name">Varun P.'s Father</div>
+              <div class="testimonial-card__role">Enrichment at Home Parent</div>
+            </div>
+          </div>
+          <span class="testimonial-card__tag">Measurable Results</span>
+        </div>
+        <div class="testimonial-card animate-on-scroll animate-delay-3">
+          <div class="testimonial-card__quote-mark">&ldquo;</div>
+          <p class="testimonial-card__text">As a parent, I feel my duty is to provide my kids with necessary study materials and quality. A Grade Ahead helps our children achieve their goals and discover their interests.</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">RR</div>
+            <div>
+              <div class="testimonial-card__name">Ravi R.</div>
+              <div class="testimonial-card__role">Enrichment at Home Parent</div>
+            </div>
+          </div>
+          <span class="testimonial-card__tag">Parental Confidence</span>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 56px;" class="animate-on-scroll">
+        <a href="#" class="btn-secondary">Read More Parent Stories <span>&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta">
+    <div class="final-cta__bg"></div>
+    <div class="container">
+      <div class="final-cta__inner animate-on-scroll">
+        <p class="section__eyebrow" style="color: var(--green-primary);">Ready to Begin?</p>
+        <h2 class="final-cta__title">Your Child's Path to Academic Confidence Starts Here</h2>
+        <p class="final-cta__text">Join thousands of families across the United States who trust A Grade Ahead to challenge and inspire their children. Take our free online assessment to find the right starting point.</p>
+        <div class="final-cta__buttons">
+          <a href="#" class="btn-white">Start Your Free Assessment <span>&rarr;</span></a>
+        </div>
+        <p class="final-cta__reassurance">No commitment required &middot; Free assessment &middot; Cancel anytime</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">
+            <img src="agradeahead-assets/logo-dark.png" alt="A Grade Ahead">
+          </div>
+          <p class="footer__tagline">Academic Enrichment for Grades K&ndash;12.<br>Expert-crafted curriculum and live virtual classes, delivered to your home.</p>
+          <p class="footer__contact-line">10202 Sawmill Parkway, Powell, OH 43065</p>
+          <p class="footer__contact-line">(866) 628-4628</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Programmes</h4>
+          <ul class="footer__links">
+            <li><a href="#">Math</a></li>
+            <li><a href="#">English</a></li>
+            <li><a href="#">Science</a></li>
+            <li><a href="#">Pre-K</a></li>
+            <li><a href="#">Curriculum Samples</a></li>
+            <li><a href="#">Build Your Own</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <ul class="footer__links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="formerly-mathwizard.html">Formerly MathWizard</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Results</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Franchising</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Support</h4>
+          <ul class="footer__links">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Parent Portal</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 A Grade Ahead, Inc. All Rights Reserved.</span>
+        <div class="footer__socials">
+          <a href="#" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Site behavior -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
