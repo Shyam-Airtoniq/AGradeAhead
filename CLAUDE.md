@@ -120,7 +120,7 @@ All blocks are guarded with `if (!el) return;` so the script is safe to drop int
 | Homepage | `/` | [home.html](home.html) | ✅ Done |
 | Formerly MathWizard | `/mathwizard/` | [formerly-mathwizard.html](formerly-mathwizard.html) | ✅ Done |
 | Math Video Tutorials | `/online-math-tutorials/` | [online-math-tutorials.html](online-math-tutorials.html) | ✅ Done (YouTube IDs are placeholders — `YOUTUBE_ID_1` / `YOUTUBE_ID_2` — user to swap in real values) |
-| English Video Tutorials | `/online-english-tutorials/` | online-english-tutorials.html | ⏳ Pending (use math page as template) |
+| English Video Tutorials | `/online-english-tutorials/` | [online-english-tutorials.html](online-english-tutorials.html) | ✅ Done (YouTube IDs are placeholders) |
 | Numericals Video Tutorials | `/online-numericals-tutorials/` | online-numericals-tutorials.html | ⏳ Pending (use math page as template) |
 
 ## Conventions
