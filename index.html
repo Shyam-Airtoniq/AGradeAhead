@@ -289,6 +289,31 @@
     .index-footer a { color: var(--purple-deep); border-bottom: 1px solid rgba(45,26,110,0.2); }
     .index-footer a:hover { color: var(--green-dark); border-color: var(--green-dark); }
 
+    .index-credit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      letter-spacing: 0.5px;
+    }
+    .index-credit a {
+      display: inline-flex;
+      align-items: center;
+      border-bottom: 0;
+      transition: opacity 0.25s ease;
+    }
+    .index-credit img {
+      height: 18px;
+      width: auto;
+      display: block;
+      opacity: 0.55;
+      transition: opacity 0.25s ease;
+    }
+    .index-credit a:hover img { opacity: 1; }
+
     @media (max-width: 600px) {
       .index-shell { padding: 48px 20px 80px; }
       .index-header { flex-wrap: wrap; }
@@ -312,7 +337,7 @@
 
     <section class="index-intro">
       <h1>Page <em>index</em>.</h1>
-      <p>Development dashboard for the A Grade Ahead website redesign. Every page opens in a new tab. The actual homepage lives at <code>/home.html</code> &mdash; this <code>index.html</code> is a navigation hub for previewing all pages during development.</p>
+      <p>Development dashboard for the A Grade Ahead website redesign.</p>
     </section>
 
     <h2 class="group-heading">Site Pages</h2>
@@ -418,6 +443,13 @@
     <footer class="index-footer">
       <span>A Grade Ahead Redesign &middot; Development Index</span>
     </footer>
+
+    <div class="index-credit">
+      <span>Created by</span>
+      <a href="https://ninegravity.com" target="_blank" rel="noopener" aria-label="ninegravity">
+        <img src="agradeahead-assets/ninegravity-logo.png" alt="ninegravity">
+      </a>
+    </div>
 
   </main>
 </body>
