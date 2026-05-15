@@ -40,8 +40,10 @@ Defined in `:root` of [css/styles.css](css/styles.css). Use these tokens — don
 - Text: `--text-dark #2C2C2C`, `--text-mid #5A5A5A`, `--text-light #8A8A8A`
 
 **Typography**
-- Headings: Playfair Display (serif), weights 400–700
-- Body: Inter (sans), weights 300–700
+- Brand font: **Arial Narrow**, with Arial as fallback (`'Arial Narrow', Arial, sans-serif`). Used for both headings and body per brand spec.
+- Arial Narrow is a Windows system font and isn't installed on most Macs/iOS/Android — those devices fall back to Arial (wider). This is an intentional brand-purity trade-off, not a bug.
+- No Google Fonts loaded — the site uses system fonts only, no external font requests.
+- Available weights in Arial Narrow: Regular (400) and Bold (700). Light/300 declarations will visually render as Regular; 500/600 declarations will render as Bold.
 - Eyebrows: 0.75rem, uppercase, letter-spacing 3px, green-primary
 - `<em>` inside headings → italic, green-dark — used for emphasis (e.g. "*at a fraction of the cost*")
 

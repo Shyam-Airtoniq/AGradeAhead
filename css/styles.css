@@ -20,8 +20,10 @@
   --text-dark: #2C2C2C;
   --text-mid: #5A5A5A;
   --text-light: #8A8A8A;
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
+  /* Brand font: Arial Narrow. Falls back to Arial on devices that don't have it
+     (most Macs/iOS/Android). Both heading and body use the same family per brand spec. */
+  --font-heading: 'Arial Narrow', Arial, sans-serif;
+  --font-body: 'Arial Narrow', Arial, sans-serif;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
