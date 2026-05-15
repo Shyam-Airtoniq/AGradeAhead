@@ -113,7 +113,31 @@ All blocks are guarded with `if (!el) return;` so the script is safe to drop int
    </html>
    ```
 
-   **No inline `<script>` or `<style>` in any page** — kept clean for WordPress conversion. The hero-video init lives in `js/main.js` and auto-runs if `#hero-video-bg` exists on the page.
+   **No inline `<script>` or `<style>` in any page** — kept clean for WordPress conversion.
+
+   **Hero video is rendered natively in HTML** (not injected via JS) so the WordPress dev can swap the src/poster per page from a PHP template / ACF field. The markup looks like:
+
+   ```html
+   <div id="hero-video-bg">
+     <video class="hero-bg-video" autoplay muted playsinline loop aria-hidden="true"
+            poster="agradeahead-assets/hero-fallback.jpg">
+       <source src="agradeahead-assets/hero-video.mp4" type="video/mp4">
+     </video>
+   </div>
+   ```
+
+   For dynamic per-page video in WordPress (e.g., with ACF):
+
+   ```php
+   <div id="hero-video-bg">
+     <video class="hero-bg-video" autoplay muted playsinline loop aria-hidden="true"
+            poster="<?php echo esc_url( get_field('hero_poster') ?: get_template_directory_uri() . '/assets/hero-fallback.jpg' ); ?>">
+       <source src="<?php echo esc_url( get_field('hero_video') ?: get_template_directory_uri() . '/assets/hero-video.mp4' ); ?>" type="video/mp4">
+     </video>
+   </div>
+   ```
+
+   The `poster` attribute is native HTML5 — the browser shows it until the video can play, no JS swap needed.
 2. Build sections using existing components first. Only add new CSS when a pattern truly doesn't exist yet — append to [css/styles.css](css/styles.css) under a `/* ===== NAME ===== */` comment.
 3. Update header nav links so the current page is reflected (you may add `aria-current="page"` later if needed).
 4. Update the table below.

@@ -167,38 +167,6 @@
   updateDriftElements();
 })();
 
-// Hero video background — moved from inline <head> script for cleaner
-// WordPress conversion. With defer on main.js, DOM is ready when this runs
-// so we no longer need the MutationObserver trick.
-(function () {
-  const hero = document.getElementById('hero-video-bg');
-  if (!hero) return;
-
-  const fallbackSrc = 'agradeahead-assets/hero-fallback.jpg';
-  const videoSrc = 'agradeahead-assets/hero-video.mp4';
-
-  // Step 1: Drop in the preloaded fallback image immediately so the hero
-  // never shows an empty/black box while the video downloads.
-  const img = document.createElement('img');
-  img.src = fallbackSrc;
-  img.className = 'hero-fallback-img';
-  img.loading = 'eager';
-  img.setAttribute('fetchpriority', 'high');
-  img.alt = '';
-  hero.appendChild(img);
-
-  // Step 2: Load video, swap it in once it can play through.
-  const video = document.createElement('video');
-  video.autoplay = true;
-  video.muted = true;
-  video.playsInline = true;
-  video.loop = true;
-  video.setAttribute('aria-hidden', 'true');
-  video.className = 'hero-bg-video';
-  video.src = videoSrc;
-  video.addEventListener('canplaythrough', function () {
-    hero.appendChild(video);
-    const fb = hero.querySelector('.hero-fallback-img');
-    if (fb) fb.remove();
-  });
-})();
+// Hero video is now rendered directly in the HTML markup
+// (<video poster="..."> inside #hero-video-bg) so the WordPress dev
+// can inject src + poster per-page via PHP/ACF. No JS needed for it.

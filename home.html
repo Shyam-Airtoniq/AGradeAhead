@@ -81,7 +81,11 @@
   <!-- ===== HERO (AiA-style full-viewport video background) ===== -->
   <section class="hero">
     <!-- Video background (injected via JS with fallback-first approach) -->
-    <div id="hero-video-bg"></div>
+    <div id="hero-video-bg">
+      <video class="hero-bg-video" autoplay muted playsinline loop aria-hidden="true" poster="agradeahead-assets/hero-fallback.jpg">
+        <source src="agradeahead-assets/hero-video.mp4" type="video/mp4">
+      </video>
+    </div>
     <!-- Dark gradient overlay -->
     <div class="hero__overlay"></div>
 
