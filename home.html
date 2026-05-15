@@ -35,46 +35,25 @@
           <a href="#" class="header__logo">
             <img src="agradeahead-assets/logo-dark.png" alt="A Grade Ahead">
           </a>
-          <nav class="header__nav" aria-label="Primary">
-            <a href="#program">Program</a>
-            <a href="#promises">Our Promises</a>
-            <a href="#testimonials">Results</a>
-            <a href="#founders">Our Story</a>
-            <a href="#academies">Academies</a>
+          <button class="header__toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-controls="primaryNav" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+          <nav class="header__nav" id="primaryNav" aria-label="Primary">
+            <ul class="header__nav-list">
+              <li class="header__nav-item"><a class="header__nav-link" href="#program">Program</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="#promises">Our Promises</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="#testimonials">Results</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="#founders">Our Story</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="#academies">Academies</a></li>
+              <li class="header__nav-item header__nav-item--cta">
+                <a class="btn-primary" href="#zip">Get Started <span class="arrow">&rarr;</span></a>
+              </li>
+            </ul>
           </nav>
-          <div class="header__right">
-            <button class="hamburger" id="menuToggle" aria-label="Toggle menu">
-              <span></span><span></span><span></span>
-            </button>
-            <a href="#" class="btn-primary header__cta">Get Started <span class="arrow">&rarr;</span></a>
-          </div>
         </div>
       </div>
     </div>
   </header>
-
-  <!-- ===== FULL SCREEN MENU ===== -->
-  <div class="modal-menu" id="modalMenu">
-    <div class="modal-menu__inner">
-      <nav>
-        <ul class="modal-menu__nav">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Programs</a></li>
-          <li><a href="#">How It Works</a></li>
-          <li><a href="#">Why Us</a></li>
-          <li><a href="#">Results</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">About Us</a></li>
-        </ul>
-      </nav>
-      <div class="modal-menu__footer">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">YouTube</a>
-        <a href="#">LinkedIn</a>
-      </div>
-    </div>
-  </div>
 
   <main id="primary" class="site-main">
 

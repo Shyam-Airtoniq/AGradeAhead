@@ -14,22 +14,26 @@
   });
 })();
 
-// Mobile menu toggle (hamburger -> full-screen modal menu)
+// Primary nav toggle — Bootstrap-style: one <ul> for all viewports.
+// Hamburger toggles a `.nav-open` class on the header that expands
+// the collapsed nav panel under the header bar on mobile.
 (function () {
-  const menuToggle = document.getElementById('menuToggle');
-  const modalMenu = document.getElementById('modalMenu');
-  if (!menuToggle || !modalMenu) return;
+  const toggle = document.getElementById('navToggle');
+  const header = document.getElementById('header');
+  if (!toggle || !header) return;
 
-  menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    modalMenu.classList.toggle('active');
-    document.body.style.overflow = modalMenu.classList.contains('active') ? 'hidden' : '';
+  toggle.addEventListener('click', () => {
+    const isOpen = header.classList.toggle('nav-open');
+    toggle.classList.toggle('is-open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
   });
-  modalMenu.querySelectorAll('a').forEach(link => {
+
+  // Close when a nav link is clicked (mobile dropdown)
+  header.querySelectorAll('.header__nav-link').forEach(link => {
     link.addEventListener('click', () => {
-      menuToggle.classList.remove('active');
-      modalMenu.classList.remove('active');
-      document.body.style.overflow = '';
+      header.classList.remove('nav-open');
+      toggle.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
     });
   });
 })();

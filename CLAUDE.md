@@ -56,7 +56,7 @@ Defined in `:root` of [css/styles.css](css/styles.css). Use these tokens — don
 
 | Component | Purpose |
 |---|---|
-| `.header` + `.utility-bar` + `.header__nav` + `.modal-menu` | Fixed header — white-on-dark by default, white-on-light when scrolled. Hamburger appears below 900px. |
+| `.header` + `.utility-bar` + `.header__nav` (`.header__nav-list` / `__nav-item` / `__nav-link`) + `.header__toggle` | Fixed header — white-on-dark by default, white-on-light when scrolled. Single `<ul>` for desktop AND mobile (Bootstrap-style). Hamburger collapses the same nav into a slide-down panel below 900px. |
 | `.hero` | Full-viewport (100vh) homepage hero with video background, left-aligned copy. Uses `padding: 200px 0 90px` to clear fixed header. |
 | `.page-hero` | Shorter inner-page hero (~55vh). Same video bg, centered copy + breadcrumb. Use this on all non-homepage pages. |
 | `.section` / `.section--grey` | Standard content section wrapper |
@@ -78,7 +78,7 @@ Defined in `:root` of [css/styles.css](css/styles.css). Use these tokens — don
 ## JS behavior (auto-wired in [js/main.js](js/main.js))
 
 - Header `scrolled` class toggles when `window.scrollY > 80`
-- Hamburger toggles modal menu
+- Hamburger (`#navToggle`) toggles `nav-open` class on the header — same `<ul>` collapses into a slide-down panel below 900px (Bootstrap-style, single nav for all viewports)
 - `.animate-on-scroll` reveals via IntersectionObserver
 - `.image-break__img` parallax on scroll
 - `.drift-container` gets PNG illustrations injected and animated (desktop > 768px only)
