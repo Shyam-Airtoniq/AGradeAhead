@@ -13,46 +13,6 @@
 
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Hero video injection (progressive-enhancement pattern) -->
-  <script>
-    (function() {
-      const fallbackSrc = 'agradeahead-assets/hero-fallback.jpg';
-      const videoSrc = 'agradeahead-assets/hero-video.mp4';
-
-      const obs = new MutationObserver(function(mutations, observer) {
-        const hero = document.getElementById('hero-video-bg');
-        if (hero) {
-          const img = document.createElement('img');
-          img.src = fallbackSrc;
-          img.className = 'hero-fallback-img';
-          img.loading = 'eager';
-          img.setAttribute('fetchpriority', 'high');
-          img.alt = '';
-          hero.appendChild(img);
-          observer.disconnect();
-        }
-      });
-      obs.observe(document.documentElement, { childList: true, subtree: true });
-
-      document.addEventListener('DOMContentLoaded', function() {
-        const hero = document.getElementById('hero-video-bg');
-        if (!hero) return;
-        const video = document.createElement('video');
-        video.autoplay = true;
-        video.muted = true;
-        video.playsInline = true;
-        video.loop = true;
-        video.setAttribute('aria-hidden', 'true');
-        video.className = 'hero-bg-video';
-        video.src = videoSrc;
-        video.addEventListener('canplaythrough', function() {
-          hero.appendChild(video);
-          var fb = hero.querySelector('.hero-fallback-img');
-          if (fb) fb.remove();
-        });
-      });
-    })();
-  </script>
 </head>
 <body>
 
@@ -114,6 +74,8 @@
       </div>
     </div>
   </div>
+
+  <main id="primary" class="site-main">
 
   <!-- ===== PAGE HERO ===== -->
   <section class="page-hero">
@@ -181,7 +143,7 @@
   </section>
 
   <!-- ===== CONTACT CALLOUT ===== -->
-  <section class="section section--grey" style="padding: 60px 0;">
+  <section class="section section--grey section--compact">
     <div class="container">
       <div class="contact-callout animate-on-scroll">
         <div class="contact-callout__icon">
@@ -203,7 +165,7 @@
     <div class="image-break__overlay">
       <blockquote class="image-break__quote animate-on-scroll">
         &ldquo;We get feedback from parents across the country who thank us for setting their kids up to succeed. That&rsquo;s what keeps us motivated to keep improving and provide the best programme out there.&rdquo;<br>
-        <small style="font-size: 0.55em; font-style: normal; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-top: 18px; display: inline-block;">&mdash; Parag Singhal, Co-founder, A Grade Ahead (formerly MathWizard)</small>
+        <small class="image-break__cite image-break__cite--tight">&mdash; Parag Singhal, Co-founder, A Grade Ahead (formerly MathWizard)</small>
       </blockquote>
     </div>
   </section>
@@ -211,7 +173,7 @@
   <!-- ===== FOUNDERS STORY ===== -->
   <section class="section drift-container">
     <div class="container">
-      <div class="section__header animate-on-scroll" style="margin-bottom: 56px;">
+      <div class="section__header animate-on-scroll">
         <p class="section__eyebrow">Our Story</p>
         <h2 class="section__title">How MathWizard became <em>A Grade Ahead</em>.</h2>
       </div>
@@ -235,7 +197,7 @@
     <div class="final-cta__bg"></div>
     <div class="container">
       <div class="final-cta__inner animate-on-scroll">
-        <p class="section__eyebrow" style="color: var(--green-primary);">Ready to Learn More?</p>
+        <p class="section__eyebrow">Ready to Learn More?</p>
         <h2 class="final-cta__title">See what A Grade Ahead can do for your child.</h2>
         <p class="final-cta__text">Join the thousands of families who&rsquo;ve trusted us since 2001 &mdash; first as MathWizard, now as A Grade Ahead. Find the academy near you or get started with Enrichment at Home today.</p>
         <div class="final-cta__buttons">
@@ -246,6 +208,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">

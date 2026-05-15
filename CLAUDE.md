@@ -73,6 +73,7 @@ Defined in `:root` of [css/styles.css](css/styles.css). Use these tokens — don
 | `.btn-primary` / `.btn-secondary` / `.btn-white` / `.btn-ghost-white` | Pill buttons |
 | `.drift-container` | Add to a section to get floating kid PNGs sweeping across as the user scrolls (desktop only). Don't overuse — 2-3 per page max. |
 | `.animate-on-scroll` (+ `animate-delay-1..4`) | Fade-up on intersect |
+| `.section--compact` / `.section__cta` / `.image-break__cite` (+ `--tight`) | WP-prep utility classes — replace previously inline `style=""` attributes (compact-padded section, centered CTA wrap below a section, image-break attribution line). |
 
 ## JS behavior (auto-wired in [js/main.js](js/main.js))
 
@@ -97,20 +98,22 @@ All blocks are guarded with `if (!el) return;` so the script is safe to drop int
      <meta name="description" content="...">
      <link rel="preload" as="image" href="agradeahead-assets/hero-fallback.jpg" fetchpriority="high">
      <link rel="preload" as="video" href="agradeahead-assets/hero-video.mp4" type="video/mp4">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="css/styles.css">
-     <!-- Copy the inline hero-video preload <script> from home.html if the page uses .page-hero with video bg -->
    </head>
    <body>
      <!-- Copy <header> + <div class="modal-menu"> from home.html -->
-     <!-- Page-specific sections -->
+
+     <main id="primary" class="site-main">
+       <!-- Page-specific sections go here -->
+     </main>
+
      <!-- Copy <footer> from home.html -->
      <script src="js/main.js" defer></script>
    </body>
    </html>
    ```
+
+   **No inline `<script>` or `<style>` in any page** — kept clean for WordPress conversion. The hero-video init lives in `js/main.js` and auto-runs if `#hero-video-bg` exists on the page.
 2. Build sections using existing components first. Only add new CSS when a pattern truly doesn't exist yet — append to [css/styles.css](css/styles.css) under a `/* ===== NAME ===== */` comment.
 3. Update header nav links so the current page is reflected (you may add `aria-current="page"` later if needed).
 4. Update the table below.

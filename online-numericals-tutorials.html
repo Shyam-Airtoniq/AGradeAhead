@@ -13,41 +13,6 @@
 
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Hero video injection -->
-  <script>
-    (function() {
-      const fallbackSrc = 'agradeahead-assets/hero-fallback.jpg';
-      const videoSrc = 'agradeahead-assets/hero-video.mp4';
-      const obs = new MutationObserver(function(mutations, observer) {
-        const hero = document.getElementById('hero-video-bg');
-        if (hero) {
-          const img = document.createElement('img');
-          img.src = fallbackSrc;
-          img.className = 'hero-fallback-img';
-          img.loading = 'eager';
-          img.setAttribute('fetchpriority', 'high');
-          img.alt = '';
-          hero.appendChild(img);
-          observer.disconnect();
-        }
-      });
-      obs.observe(document.documentElement, { childList: true, subtree: true });
-      document.addEventListener('DOMContentLoaded', function() {
-        const hero = document.getElementById('hero-video-bg');
-        if (!hero) return;
-        const video = document.createElement('video');
-        video.autoplay = true; video.muted = true; video.playsInline = true; video.loop = true;
-        video.setAttribute('aria-hidden', 'true');
-        video.className = 'hero-bg-video';
-        video.src = videoSrc;
-        video.addEventListener('canplaythrough', function() {
-          hero.appendChild(video);
-          var fb = hero.querySelector('.hero-fallback-img');
-          if (fb) fb.remove();
-        });
-      });
-    })();
-  </script>
 </head>
 <body>
 
@@ -109,6 +74,8 @@
       </div>
     </div>
   </div>
+
+  <main id="primary" class="site-main">
 
   <!-- ===== PAGE HERO ===== -->
   <section class="page-hero">
@@ -199,7 +166,7 @@
     <div class="final-cta__bg"></div>
     <div class="container">
       <div class="final-cta__inner animate-on-scroll">
-        <p class="section__eyebrow" style="color: var(--green-primary);">Need Help?</p>
+        <p class="section__eyebrow">Need Help?</p>
         <h2 class="final-cta__title">Still have questions about A Grade Ahead Online?</h2>
         <p class="final-cta__text">Our Enrichment Specialists are happy to walk you through anything &mdash; from logging in to understanding your child&rsquo;s weekly progress report. Give us a call or use the chat on our site.</p>
         <div class="final-cta__buttons">
@@ -210,6 +177,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">

@@ -11,48 +11,6 @@
   <link rel="preload" as="video" href="agradeahead-assets/hero-video.mp4" type="video/mp4">
 
 
-  <!-- Hero video injection script (AiA progressive-enhancement pattern) -->
-  <script>
-    (function() {
-      const fallbackSrc = 'agradeahead-assets/hero-fallback.jpg';
-      const videoSrc = 'agradeahead-assets/hero-video.mp4';
-
-      // Step 1: Insert fallback image ASAP via MutationObserver
-      const obs = new MutationObserver(function(mutations, observer) {
-        const hero = document.getElementById('hero-video-bg');
-        if (hero) {
-          const img = document.createElement('img');
-          img.src = fallbackSrc;
-          img.className = 'hero-fallback-img';
-          img.loading = 'eager';
-          img.setAttribute('fetchpriority', 'high');
-          img.alt = '';
-          hero.appendChild(img);
-          observer.disconnect();
-        }
-      });
-      obs.observe(document.documentElement, { childList: true, subtree: true });
-
-      // Step 2: Once DOM ready, create video & swap when playable
-      document.addEventListener('DOMContentLoaded', function() {
-        const hero = document.getElementById('hero-video-bg');
-        if (!hero) return;
-        const video = document.createElement('video');
-        video.autoplay = true;
-        video.muted = true;
-        video.playsInline = true;
-        video.loop = true;
-        video.setAttribute('aria-hidden', 'true');
-        video.className = 'hero-bg-video';
-        video.src = videoSrc;
-        video.addEventListener('canplaythrough', function() {
-          hero.appendChild(video);
-          var fb = hero.querySelector('.hero-fallback-img');
-          if (fb) fb.remove();
-        });
-      });
-    })();
-  </script>
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -117,6 +75,8 @@
       </div>
     </div>
   </div>
+
+  <main id="primary" class="site-main">
 
   <!-- ===== HERO (AiA-style full-viewport video background) ===== -->
   <section class="hero">
@@ -296,7 +256,7 @@
           </div>
         </div>
       </div>
-      <div style="text-align: center; margin-top: 56px;" class="animate-on-scroll">
+      <div class="section__cta animate-on-scroll">
         <a href="#" class="btn-primary">Get Started Free <span class="arrow">&rarr;</span></a>
       </div>
     </div>
@@ -364,7 +324,7 @@
           </div>
         </div>
       </div>
-      <div style="text-align: center; margin-top: 56px;" class="animate-on-scroll">
+      <div class="section__cta animate-on-scroll">
         <a href="#" class="btn-secondary">Download a Free Curriculum Sample <span>&rarr;</span></a>
       </div>
     </div>
@@ -376,7 +336,7 @@
     <div class="image-break__overlay">
       <blockquote class="image-break__quote animate-on-scroll">
         &ldquo;Education is not the filling of a pail, but the lighting of a fire.&rdquo;<br>
-        <small style="font-size: 0.6em; font-style: normal; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin-top: 16px; display: inline-block;">&mdash; W.B. Yeats</small>
+        <small class="image-break__cite">&mdash; W.B. Yeats</small>
       </blockquote>
     </div>
   </section>
@@ -404,7 +364,7 @@
         <p class="why-section__text">Every lesson is written by teachers. Every class is led by an educator who knows your child's name. And every month, you'll see your child grow &mdash; not just in grades, but in confidence.</p>
       </div>
 
-      <div class="animate-on-scroll" style="margin-bottom: 12px;">
+      <div class="animate-on-scroll">
         <a href="#" class="btn-secondary" id="readMoreBtn" onclick="document.getElementById('whyTextMore').classList.add('visible'); this.style.display='none'; return false;">Read More</a>
       </div>
 
@@ -466,7 +426,7 @@
         </div>
       </div>
 
-      <div class="animate-on-scroll" style="margin-top: 20px;">
+      <div class="animate-on-scroll">
         <a href="#" class="btn-primary">Get Started Free <span class="arrow">&rarr;</span></a>
       </div>
     </div>
@@ -517,7 +477,7 @@
           <span class="testimonial-card__tag">Parental Confidence</span>
         </div>
       </div>
-      <div style="text-align: center; margin-top: 56px;" class="animate-on-scroll">
+      <div class="section__cta animate-on-scroll">
         <a href="#" class="btn-secondary">Read More Parent Stories <span>&rarr;</span></a>
       </div>
     </div>
@@ -528,7 +488,7 @@
     <div class="final-cta__bg"></div>
     <div class="container">
       <div class="final-cta__inner animate-on-scroll">
-        <p class="section__eyebrow" style="color: var(--green-primary);">Ready to Begin?</p>
+        <p class="section__eyebrow">Ready to Begin?</p>
         <h2 class="final-cta__title">Your Child's Path to Academic Confidence Starts Here</h2>
         <p class="final-cta__text">Join thousands of families across the United States who trust A Grade Ahead to challenge and inspire their children. Take our free online assessment to find the right starting point.</p>
         <div class="final-cta__buttons">
@@ -538,6 +498,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
