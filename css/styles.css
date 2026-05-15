@@ -119,11 +119,17 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   justify-content: space-between;
   align-items: center;
 }
-.utility-bar a {
-  color: rgba(255,255,255,0.8);
-  margin-left: 20px;
+.utility-bar__links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
-.utility-bar a:hover { color: var(--white); }
+.utility-bar__links a {
+  color: rgba(255,255,255,0.8);
+}
+.utility-bar__links a:hover { color: var(--white); }
 
 .header__main {
   padding: 16px 0;
