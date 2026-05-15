@@ -101,7 +101,7 @@ All blocks are guarded with `if (!el) return;` so the script is safe to drop int
      <link rel="stylesheet" href="css/styles.css">
    </head>
    <body>
-     <!-- Copy <header> + <div class="modal-menu"> from home.html -->
+     <!-- Copy <header> from home.html (single <ul> nav, no separate mobile menu) -->
 
      <main id="primary" class="site-main">
        <!-- Page-specific sections go here -->
