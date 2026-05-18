@@ -10,6 +10,20 @@ I rebuild that page using the established design language defined on the homepag
 
 **The homepage is the design source of truth.** Every other page should feel like it belongs to the same site.
 
+## Built for WordPress conversion
+
+Every page in this repo is a static HTML stand-in that will later be converted to a **custom WordPress theme** by a WP developer. Build with that handoff in mind — the rules below exist because the dev gave specific feedback. Don't relax them without checking first.
+
+1. **No inline `<style>` or `<script>` blocks in any site page.** All CSS lives in [css/styles.css](css/styles.css); all JS lives in [js/main.js](js/main.js). One stylesheet, one script — site-wide.
+2. **No inline `style=""` attributes on elements.** If you need a one-off style, add a small utility class to [css/styles.css](css/styles.css) under a `/* ===== NAME ===== */` header and use it. See `.section__cta`, `.section__note`, `.section--compact`, `.welcome__subheading` for examples — each was created to replace a one-off inline style.
+3. **Hero video is native HTML5** (`<video><source></video>` with a `poster` attribute), not JS-injected. The WP dev swaps `src` and `poster` per-page via ACF fields. See the markup example below in the page-creation workflow.
+4. **Semantic HTML throughout.** `<ul>/<li>` for nav and utility-bar links (NOT divs with `<a>` siblings — the dev specifically pushed back on that). `<dl>/<dt>/<dd>` for glossaries. `<details>/<summary>` for accordions (zero JS). `<nav>`, `<main>`, `<section>`, `<header>`, `<footer>`.
+5. **BEM naming** for every CSS class (`block__element--modifier`). Stay consistent so the WP dev can scope, override, or theme cleanly.
+6. **Reuse components before adding new ones.** Check the component table below first. New CSS only when no existing pattern fits — and when you add it, document it both with a `/* ===== NAME ===== */` header in styles.css AND a row in the component table here.
+7. **Element-existence guards in [js/main.js](js/main.js).** Every block starts with `if (!el) return;` so the script is safe to drop into any page, including ones that don't use a given feature. The WP dev enqueues the same `main.js` on every template.
+8. **No external font requests.** System fonts only (Arial Narrow → Arial fallback). No Google Fonts. Keeps page weight low and sidesteps GDPR/cookie-consent surface area.
+9. **`index.html` is the lone exception** — it's a dev-only dashboard that will NOT be converted to WordPress, so its inline `<style>` block is intentional. Don't "fix" it by extracting to styles.css; keep it self-contained. Same exception does NOT apply to any other page.
+
 ## File structure
 
 ```
@@ -85,6 +99,13 @@ Defined in `:root` of [css/styles.css](css/styles.css). Use these tokens — don
 | `.process-grid` + `.process-card` + `__number` + `__title` + `__text` | 2-col grid of numbered process steps (e.g. 6-step "Assess→Excel" flow). Purple number circle on the left, green title + body on the right. |
 | `.curriculum-list` + `__item` + `__check` | 2-col list of bullet points with green checkmark icons. Simpler than `.tip-list` (no card backgrounds). Collapses to 1-col on mobile. |
 | `.subject-circles` + `.subject-circle` + `__head` + `__title` + `__grade` + `__body` + `__list` | 3-card subject grid where each card has a purple circle header overlapping a white body card containing bulleted offerings. |
+| `.form-card` + `__header` + `__title` + `.form-field` + `__label` + `__control` + `__helper` | Generic lead-capture form layout — warm-grey card wrapper with centered heading and stacked label/control rows. Reusable for any future contact/sample/enrollment form. |
+| `.form-grades` + `.form-grades__item` | Checkbox-as-pill grade picker. Hidden native checkbox, label as the clickable target; checked state turns green. Used for "select up to N grades" pickers. |
+| `.form-agree` + `__label` + `__note` | Agreement-checkbox + privacy-note row that goes above the submit button. |
+| `.form-captcha` + `__box` + `__label` + `__brand` | Static visual placeholder for the Google reCAPTCHA widget — WP dev wires up the real widget. |
+| `.form-submit` | Centered wrapper for the form's submit button (button uses `.btn-primary`). |
+| `.growth-path` + `__step` + `__num` + `__label` | Horizontal 4-step progression with green number circles and uppercase pill labels, connected by a subtle gradient line. Replaces the our-programs page's original mountain-pyramid illustration. Stacks 2-col below 768px, 1-col below 480px. |
+| `.program-circles` + `.program-circle` + `__title` + `__grade` | Flex-wrap row of solid purple subject circles (Math, English, Pre-K, Camps, Science). Distinct from `.subject-circles` — these are bare/clickable, no body card underneath. Each is an `<a>` so it's a navigable program entry point. |
 
 ## JS behavior (auto-wired in [js/main.js](js/main.js))
 
@@ -164,6 +185,8 @@ All blocks are guarded with `if (!el) return;` so the script is safe to drop int
 | Numericals Video Tutorials | `/online-numericals-tutorials/` | [online-numericals-tutorials.html](online-numericals-tutorials.html) | ✅ Done (single video; YouTube ID is a placeholder) |
 | A Grade Ahead Online (Blended Learning) | `/online/` | [online.html](online.html) | ✅ Done |
 | Enrichment Academies | `academy.agradeahead.com/` (subdomain) | [enrichment-academies.html](enrichment-academies.html) | ✅ Done |
+| Curriculum Samples | `academy.agradeahead.com/curriculum-samples/` (subdomain) | [curriculum-samples.html](curriculum-samples.html) | ✅ Done (form body is a static markup mock — WP dev to swap for Gravity Forms / WPForms shortcode and wire up real reCAPTCHA) |
+| Our Programs | `academy.agradeahead.com/our-programs/` (subdomain) | [our-programs.html](our-programs.html) | ✅ Done (original mountain-pyramid illustration replaced with `.growth-path` 4-step component; sample form duplicated from curriculum-samples — WP dev to factor out as shared template part / shortcode) |
 
 **Subdomain pages:** the old site puts the academies page on `academy.agradeahead.com` (its own subdomain with its own header/nav). In the new unified site, all subdomain pages get rolled into the main `agradeahead.com` domain and use the shared site shell (same header, footer, design language). The dev `index.html` keeps them in a separate **Subdomain Pages** group so it's clear which ones came from where.
 

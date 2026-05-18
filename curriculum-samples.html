@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Samples | A Grade Ahead</title>
+  <meta name="description" content="Curious about A Grade Ahead&rsquo;s material? Select the grades you&rsquo;re interested in and we&rsquo;ll email you a free sample &mdash; a complete day of lessons, homework, and answer key for your child to try.">
+
+  <!-- Preload hero assets (fallback image first, video second) -->
+  <link rel="preload" as="image" href="agradeahead-assets/hero-fallback.jpg" fetchpriority="high">
+  <link rel="preload" as="video" href="agradeahead-assets/hero-video.mp4" type="video/mp4">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="utility-bar">
+      <div class="container">
+        <span>Formerly MathWizard &middot; Serving 35,000+ students nationwide</span>
+        <ul class="utility-bar__links">
+          <li><a href="#">Parent Portal</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Franchising</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header__main">
+      <div class="container">
+        <div class="header__inner">
+          <a href="home.html" class="header__logo">
+            <img src="agradeahead-assets/logo-dark.png" alt="A Grade Ahead">
+          </a>
+          <button class="header__toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-controls="primaryNav" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+          <nav class="header__nav" id="primaryNav" aria-label="Primary">
+            <ul class="header__nav-list">
+              <li class="header__nav-item"><a class="header__nav-link" href="home.html#program">Program</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="home.html#promises">Our Promises</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="home.html#testimonials">Results</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="home.html#founders">Our Story</a></li>
+              <li class="header__nav-item"><a class="header__nav-link" href="enrichment-academies.html">Academies</a></li>
+              <li class="header__nav-item header__nav-item--cta">
+                <a class="btn-primary" href="home.html#zip">Get Started <span class="arrow">&rarr;</span></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="primary" class="site-main">
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div id="hero-video-bg" class="page-hero__video">
+      <video class="hero-bg-video" autoplay muted playsinline loop aria-hidden="true" poster="agradeahead-assets/hero-fallback.jpg">
+        <source src="agradeahead-assets/hero-video.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="page-hero__overlay"></div>
+    <div class="container">
+      <div class="page-hero__inner">
+        <div class="page-hero__breadcrumb">
+          <a href="home.html">Home</a>
+          <span class="page-hero__breadcrumb-sep">/</span>
+          <span>Curriculum Samples</span>
+        </div>
+        <p class="page-hero__eyebrow">Free Sample</p>
+        <h1 class="page-hero__title">See the A Grade Ahead <em>Difference</em> for Yourself</h1>
+        <p class="page-hero__subtitle">View our curriculum samples &mdash; a complete day of lessons, homework, and an answer key for your child to try.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTRO COPY ===== -->
+  <section class="welcome">
+    <div class="container">
+      <div class="welcome__inner animate-on-scroll">
+        <p class="section__eyebrow">View Our Curriculum Samples</p>
+        <h2 class="welcome__title">Details Make the Difference.</h2>
+        <p class="welcome__text">At A Grade Ahead, we understand that details make a difference and can help you make the best decision for your family. On the form below, select the grades you are curious about to receive a guided overview of the material. Each sample includes a <strong>complete day of lessons, homework, and an answer key</strong> for your child to try!</p>
+        <div class="welcome__divider"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SAMPLE-REQUEST FORM ===== -->
+  <section class="section section--grey section--compact" id="request-sample">
+    <div class="container">
+      <div class="form-card animate-on-scroll">
+        <div class="form-card__header">
+          <h2 class="form-card__title">
+            Curious about our material?
+            <span>Get a sample instantly!</span>
+          </h2>
+        </div>
+
+        <form class="curriculum-form" method="post" action="#" novalidate>
+
+          <!-- Math grade picker -->
+          <div class="form-field">
+            <span class="form-field__label">Select up to two grades for math.</span>
+            <ul class="form-grades" role="group" aria-label="Math grades">
+              <li class="form-grades__item"><input type="checkbox" id="math-k" name="math_grades[]" value="K"><label for="math-k">K</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-1" name="math_grades[]" value="1st"><label for="math-1">1st</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-2" name="math_grades[]" value="2nd"><label for="math-2">2nd</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-3" name="math_grades[]" value="3rd"><label for="math-3">3rd</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-4" name="math_grades[]" value="4th"><label for="math-4">4th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-5" name="math_grades[]" value="5th"><label for="math-5">5th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-6" name="math_grades[]" value="6th"><label for="math-6">6th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-7" name="math_grades[]" value="7th"><label for="math-7">7th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-8" name="math_grades[]" value="8th"><label for="math-8">8th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-pa1" name="math_grades[]" value="Pre-Algebra 1"><label for="math-pa1">Pre-Algebra 1</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-pa2" name="math_grades[]" value="Pre-Algebra 2"><label for="math-pa2">Pre-Algebra 2</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-a1" name="math_grades[]" value="Algebra 1"><label for="math-a1">Algebra 1</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-geo" name="math_grades[]" value="Geometry"><label for="math-geo">Geometry</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="math-a2" name="math_grades[]" value="Algebra 2"><label for="math-a2">Algebra 2</label></li>
+            </ul>
+          </div>
+
+          <!-- English grade picker -->
+          <div class="form-field">
+            <span class="form-field__label">Select up to two grades for English.</span>
+            <ul class="form-grades" role="group" aria-label="English grades">
+              <li class="form-grades__item"><input type="checkbox" id="eng-k" name="english_grades[]" value="K"><label for="eng-k">K</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-1" name="english_grades[]" value="1st"><label for="eng-1">1st</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-2" name="english_grades[]" value="2nd"><label for="eng-2">2nd</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-3" name="english_grades[]" value="3rd"><label for="eng-3">3rd</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-4" name="english_grades[]" value="4th"><label for="eng-4">4th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-5" name="english_grades[]" value="5th"><label for="eng-5">5th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-6" name="english_grades[]" value="6th"><label for="eng-6">6th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-7" name="english_grades[]" value="7th"><label for="eng-7">7th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-8" name="english_grades[]" value="8th"><label for="eng-8">8th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-9" name="english_grades[]" value="9th"><label for="eng-9">9th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-10" name="english_grades[]" value="10th"><label for="eng-10">10th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-11" name="english_grades[]" value="11th"><label for="eng-11">11th</label></li>
+              <li class="form-grades__item"><input type="checkbox" id="eng-12" name="english_grades[]" value="12th"><label for="eng-12">12th</label></li>
+            </ul>
+          </div>
+
+          <!-- Name -->
+          <div class="form-field">
+            <label class="form-field__label" for="sample-name">Name <span class="req">*</span></label>
+            <input class="form-field__control" type="text" id="sample-name" name="name" required>
+          </div>
+
+          <!-- ZIP -->
+          <div class="form-field">
+            <label class="form-field__label" for="sample-zip">ZIP Code <span class="req">*</span></label>
+            <input class="form-field__control" type="text" id="sample-zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required>
+            <small class="form-field__helper">5 digits, e.g. 43065</small>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-field">
+            <label class="form-field__label" for="sample-phone">Phone <span class="req">*</span></label>
+            <input class="form-field__control" type="tel" id="sample-phone" name="phone" required>
+            <small class="form-field__helper">We&rsquo;ll only call if there&rsquo;s an issue delivering your sample.</small>
+          </div>
+
+          <!-- Email -->
+          <div class="form-field">
+            <label class="form-field__label" for="sample-email">Email <span class="req">*</span></label>
+            <input class="form-field__control" type="email" id="sample-email" name="email" required>
+          </div>
+
+          <!-- Agreement -->
+          <div class="form-agree">
+            <input type="checkbox" id="sample-agree" name="agree" required>
+            <label class="form-agree__label" for="sample-agree">I Agree</label>
+            <p class="form-agree__note">By clicking <em>Email My Sample</em>, you agree to receive marketing communication from A Grade Ahead Inc. and have read our <a href="#">Privacy Policy</a>.</p>
+          </div>
+
+          <!-- reCAPTCHA placeholder (WP dev to swap in real widget) -->
+          <div class="form-captcha" aria-hidden="true">
+            <div class="form-captcha__box"></div>
+            <span class="form-captcha__label">I&rsquo;m not a robot</span>
+            <span class="form-captcha__brand">reCAPTCHA</span>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">Email My Sample <span class="arrow">&rarr;</span></button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT CALLOUT ===== -->
+  <section class="section section--compact">
+    <div class="container">
+      <div class="contact-callout animate-on-scroll">
+        <div class="contact-callout__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div class="contact-callout__copy">
+          <h3>Prefer to talk it through?</h3>
+          <p>Our Enrichment Specialists are available 9am&ndash;5:30pm EST, Monday through Friday, by calling <a href="tel:8666284628" class="contact-callout__phone">866.628.4628</a>. They&rsquo;ll walk you through the curriculum at your child&rsquo;s grade level.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">
+            <img src="agradeahead-assets/logo-dark.png" alt="A Grade Ahead">
+          </div>
+          <p class="footer__tagline">Academic Enrichment for Grades K&ndash;12.<br>Expert-crafted curriculum and live virtual classes, delivered to your home.</p>
+          <p class="footer__contact-line">10202 Sawmill Parkway, Powell, OH 43065</p>
+          <p class="footer__contact-line">(866) 628-4628</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Programmes</h4>
+          <ul class="footer__links">
+            <li><a href="#">Math</a></li>
+            <li><a href="#">English</a></li>
+            <li><a href="#">Science</a></li>
+            <li><a href="#">Pre-K</a></li>
+            <li><a href="curriculum-samples.html">Curriculum Samples</a></li>
+            <li><a href="#">Build Your Own</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <ul class="footer__links">
+            <li><a href="home.html#founders">About Us</a></li>
+            <li><a href="formerly-mathwizard.html">Formerly MathWizard</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Results</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Franchising</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Support</h4>
+          <ul class="footer__links">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Parent Portal</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 A Grade Ahead, Inc. All Rights Reserved.</span>
+        <div class="footer__socials">
+          <a href="#" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Site behavior -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
