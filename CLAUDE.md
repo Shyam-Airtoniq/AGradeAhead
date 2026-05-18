@@ -73,7 +73,18 @@ Defined in `:root` of [css/styles.css](css/styles.css). Use these tokens — don
 | `.btn-primary` / `.btn-secondary` / `.btn-white` / `.btn-ghost-white` | Pill buttons |
 | `.drift-container` | Add to a section to get floating kid PNGs sweeping across as the user scrolls (desktop only). Don't overuse — 2-3 per page max. |
 | `.animate-on-scroll` (+ `animate-delay-1..4`) | Fade-up on intersect |
-| `.section--compact` / `.section__cta` / `.image-break__cite` (+ `--tight`) | WP-prep utility classes — replace previously inline `style=""` attributes (compact-padded section, centered CTA wrap below a section, image-break attribution line). |
+| `.section--compact` / `.section__cta` / `.section__note` / `.image-break__cite` (+ `--tight`) / `.welcome__subheading` | WP-prep utility classes — replace previously inline `style=""` attributes (compact-padded section, centered CTA wrap below a section, centered italic note paragraph, image-break attribution line, subheading inside `.welcome__inner`). |
+| `.numbered-steps` + `__item` + `__number` + `__body` | Vertical numbered list with green-circle numbers — for "How It Works"-style 5-step flows. Distinct from `.step-card` (homepage horizontal 3-step photo journey). |
+| `.components-list` + `__item` + `__icon` + `__title` + `__text` | Icon + title + multi-paragraph description rows. Used for "Blended Learning Components"-style feature lists. |
+| `.faq` + `.faq__item` (`<details>`) + `.faq__q` (`<summary>`) + `.faq__a` | Zero-JS accordion using native `<details>`/`<summary>`. Green circular chevron rotates on open. |
+| `.glossary` + `.glossary__item` + `.glossary__term` + `.glossary__def` | Definition-list (`<dl>`) glossary with green pill-style terms and multi-paragraph definitions. |
+| `.screens-grid` + `.screens-grid__item` | 2×2 (1-col mobile) grid for product/activity screenshots with subtle hover lift. |
+| `.grade-pills` + `.grade-pills__item` | Horizontal wrapping list of grade-level pills (warm-grey bg, purple text). |
+| `.testimonial-speech` + `__bubble` + `__mark` (`--open` / `--close`) + `__text` + `__author` | Single centered testimonial in a speech-bubble card with large purple opening/closing quotation marks. No carousel JS. |
+| `.feature-panel` + `__bg` + `__card` + `__title` + `__subtitle` + `__grid` + `__item` + `__icon` | Full-width image band with semi-transparent purple feature card overlaid on the left. 3-col icon grid inside the card (2-col below 600px). |
+| `.process-grid` + `.process-card` + `__number` + `__title` + `__text` | 2-col grid of numbered process steps (e.g. 6-step "Assess→Excel" flow). Purple number circle on the left, green title + body on the right. |
+| `.curriculum-list` + `__item` + `__check` | 2-col list of bullet points with green checkmark icons. Simpler than `.tip-list` (no card backgrounds). Collapses to 1-col on mobile. |
+| `.subject-circles` + `.subject-circle` + `__head` + `__title` + `__grade` + `__body` + `__list` | 3-card subject grid where each card has a purple circle header overlapping a white body card containing bulleted offerings. |
 
 ## JS behavior (auto-wired in [js/main.js](js/main.js))
 
@@ -151,6 +162,10 @@ All blocks are guarded with `if (!el) return;` so the script is safe to drop int
 | Math Video Tutorials | `/online-math-tutorials/` | [online-math-tutorials.html](online-math-tutorials.html) | ✅ Done (YouTube IDs are placeholders — `YOUTUBE_ID_1` / `YOUTUBE_ID_2` — user to swap in real values) |
 | English Video Tutorials | `/online-english-tutorials/` | [online-english-tutorials.html](online-english-tutorials.html) | ✅ Done (YouTube IDs are placeholders) |
 | Numericals Video Tutorials | `/online-numericals-tutorials/` | [online-numericals-tutorials.html](online-numericals-tutorials.html) | ✅ Done (single video; YouTube ID is a placeholder) |
+| A Grade Ahead Online (Blended Learning) | `/online/` | [online.html](online.html) | ✅ Done |
+| Enrichment Academies | `academy.agradeahead.com/` (subdomain) | [enrichment-academies.html](enrichment-academies.html) | ✅ Done |
+
+**Subdomain pages:** the old site puts the academies page on `academy.agradeahead.com` (its own subdomain with its own header/nav). In the new unified site, all subdomain pages get rolled into the main `agradeahead.com` domain and use the shared site shell (same header, footer, design language). The dev `index.html` keeps them in a separate **Subdomain Pages** group so it's clear which ones came from where.
 
 ## Conventions
 

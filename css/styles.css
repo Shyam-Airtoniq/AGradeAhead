@@ -1767,3 +1767,598 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   opacity: 0.7;
   margin-top: 18px;
 }
+
+/* ===== NUMBERED STEPS (vertical list with green number circles) =====
+   Used on the blended-learning page for "How It Works" and
+   "Logging In for the First Time" sections. Distinct from .step-card
+   on the homepage (which is a horizontal 3-card journey with photos). */
+.numbered-steps {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+}
+.numbered-steps__item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 24px;
+  align-items: start;
+  background: var(--white);
+  border: 1px solid rgba(45, 26, 110, 0.08);
+  border-radius: 18px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 20px rgba(45, 26, 110, 0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.numbered-steps__item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(45, 26, 110, 0.08);
+}
+.numbered-steps__number {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-dark));
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.numbered-steps__body {
+  padding-top: 6px;
+}
+.numbered-steps__body p {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.numbered-steps__body p + p { margin-top: 12px; }
+.numbered-steps__body strong { color: var(--text-dark); font-weight: 600; }
+.numbered-steps__body a { color: var(--purple-mid); text-decoration: underline; }
+.numbered-steps__body a:hover { color: var(--green-dark); }
+
+/* ===== COMPONENTS LIST (icon + title + description rows) =====
+   Used on the blended-learning page for the "Blended Learning Components"
+   section. Each row has a green square icon on the left and copy on the right. */
+.components-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 32px;
+}
+.components-list__item {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.components-list__icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-dark));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(122, 182, 72, 0.25);
+}
+.components-list__icon svg { width: 44px; height: 44px; }
+.components-list__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  margin: 4px 0 12px;
+}
+.components-list__text {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.components-list__text + .components-list__text { margin-top: 10px; }
+.components-list__text strong { color: var(--text-dark); font-weight: 600; }
+
+/* ===== FAQ ACCORDION (native <details>/<summary>) =====
+   Zero-JS accordion. <details> opens with default browser behavior,
+   we just style summary as a clickable row and rotate the chevron. */
+.faq {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+.faq__item {
+  background: var(--white);
+  border: 1px solid rgba(45, 26, 110, 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.faq__item[open] {
+  box-shadow: 0 8px 24px rgba(45, 26, 110, 0.08);
+  border-color: rgba(122, 182, 72, 0.35);
+}
+.faq__q {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 28px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--purple-deep);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: color 0.2s;
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::marker { content: ''; }
+.faq__q:hover { color: var(--green-dark); }
+.faq__q::after {
+  content: '';
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--green-primary);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.faq__item[open] .faq__q::after { transform: rotate(180deg); }
+.faq__a {
+  padding: 0 28px 24px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+.faq__a p { margin: 0; }
+.faq__a p + p { margin-top: 12px; }
+.faq__a strong { color: var(--text-dark); font-weight: 600; }
+
+/* ===== GLOSSARY (definition list with green-accented terms) =====
+   Used on the blended-learning page for "Terminology for Parents".
+   Each term gets a green left-border treatment + bold purple heading. */
+.glossary {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  gap: 32px;
+}
+.glossary__item { padding-left: 0; }
+.glossary__term {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--green-primary), var(--green-dark));
+  padding: 8px 20px;
+  border-radius: 999px;
+  margin: 0 0 14px;
+}
+.glossary__def {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.glossary__def + .glossary__def { margin-top: 10px; }
+.glossary__def strong { color: var(--text-dark); font-weight: 600; }
+.glossary__def a { color: var(--purple-mid); text-decoration: underline; }
+.glossary__def a:hover { color: var(--green-dark); }
+
+/* ===== SCREENS GRID (responsive grid of activity-screenshot tiles) =====
+   Used on the blended-learning page for the "Online Activities" section. */
+.screens-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+.screens-grid__item {
+  background: var(--white);
+  border: 1px solid rgba(45, 26, 110, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(45, 26, 110, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.screens-grid__item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(45, 26, 110, 0.1);
+}
+.screens-grid__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===== PARTICIPATING GRADE LEVELS (compact pill-style list) =====
+   Used on the blended-learning intro section for the grade list. */
+.grade-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.grade-pills__item {
+  background: var(--warm-grey);
+  color: var(--purple-deep);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid rgba(45, 26, 110, 0.08);
+}
+
+/* Subheading inside .welcome__inner (e.g. "Participating Grade Levels"
+   before the .grade-pills list on the blended-learning page) */
+.welcome__subheading {
+  font-size: 1.15rem;
+  color: var(--purple-deep);
+  margin: 16px 0 0;
+  font-weight: 700;
+}
+
+/* Centered note paragraph below a section header (e.g. the italicized
+   "Note: students complete..." line above the screens-grid) */
+.section__note {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Responsive overrides for blended-learning components */
+@media (max-width: 768px) {
+  .numbered-steps__item {
+    grid-template-columns: 48px 1fr;
+    gap: 18px;
+    padding: 22px 24px;
+  }
+  .numbered-steps__number {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+  .components-list__item {
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+  }
+  .components-list__icon { width: 72px; height: 72px; }
+  .components-list__icon svg { width: 34px; height: 34px; }
+  .faq__q { padding: 18px 20px; font-size: 1rem; }
+  .faq__a { padding: 0 20px 20px; }
+  .screens-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== TESTIMONIAL SPEECH BUBBLE (single, centered, with quote marks) =====
+   Used on the academies page. Speech-bubble style with large purple
+   quotation marks above & below. No carousel JS — just a single quote. */
+.testimonial-speech {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  padding: 60px 40px;
+}
+.testimonial-speech__bubble {
+  position: relative;
+  background: var(--white);
+  border-radius: 28px;
+  padding: 56px 48px 48px;
+  box-shadow: 0 10px 40px rgba(45, 26, 110, 0.08);
+}
+.testimonial-speech__bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -22px;
+  right: 80px;
+  width: 32px;
+  height: 32px;
+  background: var(--white);
+  transform: rotate(45deg);
+  box-shadow: 4px 4px 12px rgba(45, 26, 110, 0.04);
+}
+.testimonial-speech__mark {
+  position: absolute;
+  color: var(--purple-deep);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 700;
+}
+.testimonial-speech__mark--open {
+  top: 16px;
+  left: 36px;
+}
+.testimonial-speech__mark--close {
+  bottom: -8px;
+  right: 36px;
+}
+.testimonial-speech__text {
+  margin: 0 0 20px;
+  color: var(--purple-deep);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: center;
+}
+.testimonial-speech__author {
+  text-align: center;
+  font-style: italic;
+  color: var(--purple-deep);
+  font-size: 0.95rem;
+}
+
+/* ===== FEATURE PANEL (full-width image with overlay feature grid) =====
+   Used on the academies page for the "After-School Enrichment Classes"
+   section. Background image fills the band, a semi-transparent purple
+   card overlays on the left holding a 3-col grid of icon features. */
+.feature-panel {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.feature-panel__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.feature-panel__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.feature-panel__card {
+  position: relative;
+  z-index: 1;
+  background: rgba(45, 26, 110, 0.92);
+  color: var(--white);
+  max-width: 620px;
+  margin-left: clamp(24px, 6vw, 96px);
+  padding: 56px 48px;
+  border-radius: 4px;
+}
+.feature-panel__title {
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-weight: 700;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+.feature-panel__subtitle {
+  margin: 0 0 36px;
+  font-size: 1rem;
+  opacity: 0.9;
+  text-align: center;
+}
+.feature-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 20px;
+}
+.feature-panel__item {
+  text-align: center;
+}
+.feature-panel__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 12px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature-panel__icon svg { width: 100%; height: 100%; }
+.feature-panel__item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--white);
+}
+.feature-panel__item p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* ===== PROCESS GRID (2-col 6-step numbered cards) =====
+   Used on the academies page for the 6-step "What is Enrichment?" flow.
+   Distinct from .numbered-steps (vertical 1-col) and .step-card
+   (3-card photo journey). Each card has a number circle + title + body. */
+.process-grid {
+  max-width: 980px;
+  margin: 60px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 32px;
+}
+.process-card {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  align-items: start;
+  background: var(--white);
+  border: 1px solid rgba(45, 26, 110, 0.1);
+  border-radius: 18px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 16px rgba(45, 26, 110, 0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.process-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(45, 26, 110, 0.08);
+}
+.process-card__number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--purple-deep);
+  color: var(--white);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.process-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin: 6px 0 8px;
+}
+.process-card__text {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===== CURRICULUM LIST (green-check bullets in 2-col grid) =====
+   Used on the academies page for the "Our Curriculum" benefits list.
+   Simpler than .tip-list — no card backgrounds, just a check + text row. */
+.curriculum-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 40px;
+  list-style: none;
+  padding: 0;
+}
+.curriculum-list__item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+.curriculum-list__check {
+  width: 24px;
+  height: 24px;
+  color: var(--green-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.curriculum-list__check svg { width: 100%; height: 100%; }
+.curriculum-list__item p {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.curriculum-list__item p a {
+  color: var(--green-dark);
+  text-decoration: underline;
+}
+.curriculum-list__item p a:hover { color: var(--purple-deep); }
+
+/* ===== SUBJECT CIRCLES (3-card subject grid with circle headers) =====
+   Used on the academies page below the curriculum list. Each card has
+   a purple circle on top showing the subject name + grade range, and
+   a body card below with bulleted offerings. */
+.subject-circles {
+  max-width: 880px;
+  margin: 56px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.subject-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.subject-circle__head {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--purple-deep);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 6px 20px rgba(45, 26, 110, 0.25);
+}
+.subject-circle__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.subject-circle__grade {
+  font-size: 0.7rem;
+  margin-top: 4px;
+  opacity: 0.85;
+  letter-spacing: 0.3px;
+}
+.subject-circle__body {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid rgba(45, 26, 110, 0.08);
+  border-radius: 14px;
+  padding: 64px 22px 26px;
+  margin-top: -54px;
+  box-shadow: 0 4px 18px rgba(45, 26, 110, 0.05);
+}
+.subject-circle__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.subject-circle__list li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--text-dark);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.subject-circle__list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-primary);
+  position: absolute;
+  left: 0;
+  top: 9px;
+}
+
+/* Responsive overrides for academies components */
+@media (max-width: 900px) {
+  .feature-panel__card {
+    margin: 32px clamp(16px, 4vw, 32px);
+    max-width: none;
+    padding: 40px 32px;
+  }
+  .feature-panel { min-height: 0; padding: 0; }
+  .process-grid { grid-template-columns: 1fr; }
+  .subject-circles { grid-template-columns: 1fr; max-width: 360px; gap: 32px; }
+}
+@media (max-width: 600px) {
+  .feature-panel__grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+  .curriculum-list { grid-template-columns: 1fr; gap: 18px; }
+  .testimonial-speech { padding: 40px 12px; }
+  .testimonial-speech__bubble { padding: 44px 28px 36px; }
+  .testimonial-speech__mark { font-size: 3.5rem; }
+}
