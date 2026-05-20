@@ -2417,10 +2417,64 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
   box-shadow: 0 0 0 3px rgba(122, 182, 72, 0.15);
 }
 .form-field__control::placeholder { color: var(--text-light); }
+/* Select variant — strip native styling, add custom chevron */
+select.form-field__control {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232D1A6E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+  cursor: pointer;
+}
+/* Textarea variant — allow vertical resize, set min height */
+textarea.form-field__control {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.6;
+}
+/* File-upload variant — style the native input + visible button */
+.form-field__file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.form-field__file input[type="file"] {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-mid);
+}
+.form-field__file input[type="file"]::file-selector-button {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  background: var(--white);
+  color: var(--purple-deep);
+  border: 1px solid rgba(45, 26, 110, 0.15);
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: all 0.2s;
+}
+.form-field__file input[type="file"]::file-selector-button:hover {
+  background: var(--purple-deep);
+  color: var(--white);
+  border-color: var(--purple-deep);
+}
 .form-field__helper {
   display: block;
   margin-top: 6px;
   font-size: 0.82rem;
+  color: var(--text-light);
+}
+/* Inline (optional) tag that sits next to a form label */
+.form-field__optional {
+  display: inline;
+  margin-left: 6px;
+  font-size: 0.78rem;
+  font-weight: 400;
   color: var(--text-light);
 }
 
@@ -2662,3 +2716,178 @@ button { cursor: pointer; border: none; font-family: var(--font-body); }
 @media (max-width: 480px) {
   .growth-path { grid-template-columns: 1fr; }
 }
+
+/* ===== FORMULA ROW (equation-style icon graphic) =====
+   Used on the programs-math page to replace the original site's
+   "Lessons + Drills + Problems = Success" infographic. Each item is
+   an icon with a label above it, separated by large + and = operators. */
+.formula-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.formula-row__item {
+  text-align: center;
+  flex: 0 0 auto;
+  width: 140px;
+}
+.formula-row__label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--purple-deep);
+  margin: 0 0 18px;
+  min-height: 42px;
+  line-height: 1.3;
+}
+.formula-row__icon {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto;
+  color: var(--purple-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formula-row__icon svg { width: 100%; height: 100%; }
+.formula-row__op {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--green-primary);
+  line-height: 1;
+  margin-top: 80px;
+  flex: 0 0 auto;
+}
+
+/* ===== GRADE LIST (vertical list of green pill buttons) =====
+   Used on subject detail pages (math, english, science, pre-k, etc.)
+   for the "Select a grade to explore" picker. Each item is an <a>
+   linking to a deeper grade-detail page (or anchor) with a chevron. */
+.grade-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.grade-list__item { margin: 0; }
+.grade-list__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 22px;
+  background: linear-gradient(135deg, var(--green-primary), var(--green-dark));
+  color: var(--white);
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 2px 8px rgba(122, 182, 72, 0.2);
+}
+.grade-list__btn:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 22px rgba(122, 182, 72, 0.35);
+}
+.grade-list__btn::after {
+  content: '›';
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* ===== PROGRAM DETAIL LAYOUT (grade list + form side-by-side) =====
+   Used on subject detail pages. Left col: heading + .grade-list,
+   right col: the .form-card. Collapses to single column under 900px. */
+.program-detail {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 56px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.program-detail__heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  margin: 0 0 24px;
+  line-height: 1.3;
+}
+@media (max-width: 900px) {
+  .program-detail { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 600px) {
+  .formula-row__op { font-size: 2.25rem; margin-top: 64px; }
+  .formula-row__item { width: 110px; }
+  .formula-row__icon { width: 64px; height: 64px; }
+  .formula-row__label { font-size: 0.78rem; margin-bottom: 12px; min-height: 36px; }
+}
+
+/* ===== CAMP LIST (italic-green title + grade range + body) =====
+   Used on the enrichment-camps page for the list of camp offerings
+   (MathVenture Junior, Eco-Explorers, Time Travelers, etc). Each item
+   has an italic green title with the grade range in lighter green
+   alongside, and a body paragraph below. Distinct from `.glossary`
+   (which uses pill terms) and `.components-list` (which has icons). */
+.camp-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  gap: 44px;
+}
+.camp-list__item {
+  padding-left: 20px;
+  border-left: 3px solid var(--green-primary);
+}
+.camp-list__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  font-style: italic;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+.camp-list__grades {
+  color: var(--green-primary);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1rem;
+  margin-left: 8px;
+}
+.camp-list__text {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.camp-list__text + .camp-list__text { margin-top: 10px; }
+.camp-list__text strong { color: var(--text-dark); font-weight: 600; }
+
+/* ===== CONTENT BLOCK (centered text-content article) =====
+   For lightweight informational pages like submit-button-not-showing,
+   thank-you, error-fallback, etc. Centered narrow text, larger leading. */
+.content-block {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.content-block p {
+  margin: 0 0 22px;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+.content-block p:last-child { margin-bottom: 0; }
+.content-block p strong { font-weight: 700; color: var(--purple-deep); }
+.content-block a {
+  color: var(--green-dark);
+  font-weight: 700;
+  text-decoration: underline;
+}
+.content-block a:hover { color: var(--purple-deep); }

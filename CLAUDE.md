@@ -23,6 +23,7 @@ Every page in this repo is a static HTML stand-in that will later be converted t
 7. **Element-existence guards in [js/main.js](js/main.js).** Every block starts with `if (!el) return;` so the script is safe to drop into any page, including ones that don't use a given feature. The WP dev enqueues the same `main.js` on every template.
 8. **No external font requests.** System fonts only (Arial Narrow → Arial fallback). No Google Fonts. Keeps page weight low and sidesteps GDPR/cookie-consent surface area.
 9. **`index.html` is the lone exception** — it's a dev-only dashboard that will NOT be converted to WordPress, so its inline `<style>` block is intentional. Don't "fix" it by extracting to styles.css; keep it self-contained. Same exception does NOT apply to any other page.
+10. **All form bodies are visual mocks — the WP dev uses Gravity Forms.** Any `<form>` you write inside a `.form-card` is placeholder markup. In WordPress, the entire form body gets replaced with a single Gravity Forms shortcode (e.g. `[gravityform id='3']`); the surrounding `.form-card` wrapper, heading, and footer stay. Map Gravity Forms' CSS Ready Classes (`gform_wrapper`, `gfield`, `gfield_label`, `ginput_container`, etc.) to our `.form-field` / `.form-field__label` / `.form-field__control` styling so the visual treatment carries through. The visual mock exists so the client can preview what the styled form will look like.
 
 ## File structure
 
@@ -99,13 +100,18 @@ Defined in `:root` of [css/styles.css](css/styles.css). Use these tokens — don
 | `.process-grid` + `.process-card` + `__number` + `__title` + `__text` | 2-col grid of numbered process steps (e.g. 6-step "Assess→Excel" flow). Purple number circle on the left, green title + body on the right. |
 | `.curriculum-list` + `__item` + `__check` | 2-col list of bullet points with green checkmark icons. Simpler than `.tip-list` (no card backgrounds). Collapses to 1-col on mobile. |
 | `.subject-circles` + `.subject-circle` + `__head` + `__title` + `__grade` + `__body` + `__list` | 3-card subject grid where each card has a purple circle header overlapping a white body card containing bulleted offerings. |
-| `.form-card` + `__header` + `__title` + `.form-field` + `__label` + `__control` + `__helper` | Generic lead-capture form layout — warm-grey card wrapper with centered heading and stacked label/control rows. Reusable for any future contact/sample/enrollment form. |
+| `.form-card` + `__header` + `__title` + `.form-field` + `__label` + `__control` + `__helper` + `__optional` + `__file` | Generic lead-capture form layout — warm-grey card wrapper with centered heading and stacked label/control rows. `__control` works for `<input>`, `<select>` (custom chevron), and `<textarea>` (vertical resize). `__file` styles the native file-upload input. `__optional` is an inline "(optional)" tag next to a label. Reusable for any future form. **All form bodies are visual mocks — WP dev replaces with Gravity Forms shortcode.** |
+| `.content-block` | Centered narrow text-content article (max 760px) for lightweight info pages like submit-button-not-showing, thank-you, error-fallback. Slightly larger leading than default body copy. |
 | `.form-grades` + `.form-grades__item` | Checkbox-as-pill grade picker. Hidden native checkbox, label as the clickable target; checked state turns green. Used for "select up to N grades" pickers. |
 | `.form-agree` + `__label` + `__note` | Agreement-checkbox + privacy-note row that goes above the submit button. |
 | `.form-captcha` + `__box` + `__label` + `__brand` | Static visual placeholder for the Google reCAPTCHA widget — WP dev wires up the real widget. |
 | `.form-submit` | Centered wrapper for the form's submit button (button uses `.btn-primary`). |
 | `.growth-path` + `__step` + `__num` + `__label` | Horizontal 4-step progression with green number circles and uppercase pill labels, connected by a subtle gradient line. Replaces the our-programs page's original mountain-pyramid illustration. Stacks 2-col below 768px, 1-col below 480px. |
 | `.program-circles` + `.program-circle` + `__title` + `__grade` | Flex-wrap row of solid purple subject circles (Math, English, Pre-K, Camps, Science). Distinct from `.subject-circles` — these are bare/clickable, no body card underneath. Each is an `<a>` so it's a navigable program entry point. |
+| `.formula-row` + `__item` + `__label` + `__icon` + `__op` | Equation-style horizontal row of labelled icons separated by big `+` and `=` operators. Used on subject-detail pages to summarize "A + B + C = D" relationships (e.g. Lessons + Drills + Problems = Success). |
+| `.grade-list` + `.grade-list__item` + `.grade-list__btn` | Vertical stack of full-width green pill buttons with right-chevrons. Used on subject-detail pages for the "Select a grade" picker, where each entry links to a deeper grade-detail page. |
+| `.program-detail` + `__heading` | 2-col layout (grade list on the left, `.form-card` on the right) for subject-detail pages. Collapses to single column below 900px. |
+| `.camp-list` + `__item` + `__title` + `__grades` + `__text` | Vertical list of program/camp offerings. Each item has a left green border, italic green title with lighter-green grade range inline, and a body paragraph. Used on enrichment-camps page. |
 
 ## JS behavior (auto-wired in [js/main.js](js/main.js))
 
@@ -184,9 +190,13 @@ All blocks are guarded with `if (!el) return;` so the script is safe to drop int
 | English Video Tutorials | `/online-english-tutorials/` | [online-english-tutorials.html](online-english-tutorials.html) | ✅ Done (YouTube IDs are placeholders) |
 | Numericals Video Tutorials | `/online-numericals-tutorials/` | [online-numericals-tutorials.html](online-numericals-tutorials.html) | ✅ Done (single video; YouTube ID is a placeholder) |
 | A Grade Ahead Online (Blended Learning) | `/online/` | [online.html](online.html) | ✅ Done |
+| Error Report | `/error-report/` | [error-report.html](error-report.html) | ✅ Done (15-field visual mock — WP dev to replace form body with a Gravity Forms shortcode; same approach for all forms going forward) |
+| Submit Button Not Showing | `/submit-button-not-showing/` | [submit-button-not-showing.html](submit-button-not-showing.html) | ✅ Done (lightweight text help page) |
 | Enrichment Academies | `academy.agradeahead.com/` (subdomain) | [enrichment-academies.html](enrichment-academies.html) | ✅ Done |
 | Curriculum Samples | `academy.agradeahead.com/curriculum-samples/` (subdomain) | [curriculum-samples.html](curriculum-samples.html) | ✅ Done (form body is a static markup mock — WP dev to swap for Gravity Forms / WPForms shortcode and wire up real reCAPTCHA) |
 | Our Programs | `academy.agradeahead.com/our-programs/` (subdomain) | [our-programs.html](our-programs.html) | ✅ Done (original mountain-pyramid illustration replaced with `.growth-path` 4-step component; sample form duplicated from curriculum-samples — WP dev to factor out as shared template part / shortcode) |
+| Programs &mdash; Math | `academy.agradeahead.com/our-programs/math/` (subdomain) | [programs-math.html](programs-math.html) | ✅ Done (original "Lessons + Drills + Problems = Success" infographic rebuilt with `.formula-row`; first of several subject-detail pages — English/Science/Pre-K/Camps will follow same `.program-detail` layout) |
+| Programs &mdash; Enrichment Camps | `academy.agradeahead.com/our-programs/enrichment-camps/` (subdomain) | [programs-enrichment-camps.html](programs-enrichment-camps.html) | ✅ Done (original 2-photo top banner skipped — no camp photos in assets; standard page-hero + new `.camp-list` for the 6 camp offerings) |
 
 **Subdomain pages:** the old site puts the academies page on `academy.agradeahead.com` (its own subdomain with its own header/nav). In the new unified site, all subdomain pages get rolled into the main `agradeahead.com` domain and use the shared site shell (same header, footer, design language). The dev `index.html` keeps them in a separate **Subdomain Pages** group so it's clear which ones came from where.
 
